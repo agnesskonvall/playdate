@@ -1,7 +1,15 @@
-import './style.css'
+import './style.css';
+import * as PIXI from "pixi.js";
 
-document.querySelector('#app').innerHTML = `
-  <h1>Hello Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
+let app = new PIXI.Application({ width: 800, height: 1000 });
+document.body.appendChild(app.view);
 
-`
+let sprite = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
+
+app.stage.addChild(sprite);
+
+// let elapsed = 0.0;
+// app.ticker.add((delta) => {
+//   elapsed += delta;
+//   sprite.x = 100.0 + Math.cos(elapsed/50.0) * 100.0;
+// });
