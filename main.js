@@ -1,13 +1,15 @@
 import './style.css';
 import * as PIXI from "pixi.js";
 const appDiv = document.getElementById('app');
+window.onload = function () {
 let app = new PIXI.Application({ width: 500, height: 700, backgroundColor: 0xffffff});
 appDiv.appendChild(app.view);
 
 let background = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
 
 //height på sprite bilden ska vara 120px
-let yrgonaut_neutral = PIXI.Sprite.from("/sprites/yrgonaut_neutral.png")
+let yrgonaut_neutral = PIXI.Texture.from("/sprites/yrgonaut_neutral.png");
+let yrgonaut_happy = PIXI.Texture.from("/sprites/yrgonaut_happy.png")
 
 let beer_button = PIXI.Sprite.from("/sprites/beermug.png");
 let computer_button = PIXI.Sprite.from("/sprites/computer_button.png");
@@ -17,9 +19,7 @@ let stretch_button = PIXI.Sprite.from("/sprites/legstretch.png");
 let stack_button = PIXI.Sprite.from("/sprites/stack_overflow.png")
 
 app.stage.addChild(background);
-let yrgonaut = yrgonaut_neutral;
-
-app.stage.addChild(yrgonaut);
+let yrgonaut = new PIXI.Sprite(yrgonaut_neutral);
 
 app.stage.addChild(background);
 app.stage.addChild(computer_button);
@@ -49,22 +49,26 @@ stack_button.x = 185;
 stack_button.y = 464;
 
 
+food_button.interactive = true;
+food_button.buttonMode = true;
+food_button.on('click', feed);
+
 
 app.stage.addChild(background);
-let sprite = yrgonaut_neutral;
 app.stage.addChild(stack_button);
 app.stage.addChild(computer_button);
 app.stage.addChild(stretch_button);
 app.stage.addChild(sleep_button)
 app.stage.addChild(food_button);
 app.stage.addChild(beer_button);
+app.stage.addChild(yrgonaut);
 
-app.stage.addChild(sprite);
+function feed() {
+  yrgonaut.setTexture(yrgonaut_happy);
+}
 
 
-
-
-
+}
 // let elapsed = 0.0;
 // app.ticker.add((delta) => {
 //   elapsed += delta;
