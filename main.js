@@ -4,9 +4,17 @@ const appDiv = document.getElementById('app');
 let app = new PIXI.Application({ width: 500, height: 700, backgroundColor: 0xffffff});
 appDiv.appendChild(app.view);
 
-let sprite = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
+let background = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
+let yrgonaut_neutral = PIXI.Sprite.from("/sprites/yrgonaut_neutral.png")
+
+app.stage.addChild(background);
+let sprite = yrgonaut_neutral;
 
 app.stage.addChild(sprite);
+
+
+
+
 
 // let elapsed = 0.0;
 // app.ticker.add((delta) => {
