@@ -1,8 +1,8 @@
 import './style.css';
 import * as PIXI from "pixi.js";
-
-let app = new PIXI.Application({ width: 800, height: 1000 });
-document.body.appendChild(app.view);
+const appDiv = document.getElementById('app');
+let app = new PIXI.Application({ width: 500, height: 700, backgroundColor: 0xffffff});
+appDiv.appendChild(app.view);
 
 let sprite = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
 
