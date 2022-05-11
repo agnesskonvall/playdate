@@ -5,13 +5,30 @@ let app = new PIXI.Application({ width: 500, height: 700, backgroundColor: 0xfff
 appDiv.appendChild(app.view);
 
 let background = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
-let yrgonaut_neutral = PIXI.Sprite.from("/sprites/yrgonaut_neutral.png");
+
+//height på sprite bilden ska vara 120px
+let yrgonaut_neutral = PIXI.Sprite.from("/sprites/yrgonaut_neutral.png")
+
 let beer_button = PIXI.Sprite.from("/sprites/beermug.png");
 let computer_button = PIXI.Sprite.from("/sprites/computer_button.png");
 let food_button = PIXI.Sprite.from("/sprites/forkandknife.png");
 let sleep_button = PIXI.Sprite.from("/sprites/moon.png");
 let stretch_button = PIXI.Sprite.from("/sprites/legstretch.png");
 let stack_button = PIXI.Sprite.from("/sprites/stack_overflow.png")
+
+app.stage.addChild(background);
+let yrgonaut = yrgonaut_neutral;
+
+app.stage.addChild(yrgonaut);
+
+app.stage.addChild(background);
+app.stage.addChild(computer_button);
+app.stage.addChild(sleep_button)
+app.stage.addChild(food_button);
+app.stage.addChild(beer_button);
+
+yrgonaut.x = 208;
+yrgonaut.y = 335;
 
 beer_button.x = 330;
 beer_button.y = 282;
