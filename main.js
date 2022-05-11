@@ -5,12 +5,16 @@ let app = new PIXI.Application({ width: 500, height: 700, backgroundColor: 0xfff
 appDiv.appendChild(app.view);
 
 let background = PIXI.Sprite.from("/sprites/yrgotchi_base.png");
+//height på sprite bilden ska vara 120px
 let yrgonaut_neutral = PIXI.Sprite.from("/sprites/yrgonaut_neutral.png")
 
 app.stage.addChild(background);
-let sprite = yrgonaut_neutral;
+let yrgonaut = yrgonaut_neutral;
 
-app.stage.addChild(sprite);
+app.stage.addChild(yrgonaut);
+yrgonaut.x = 208;
+yrgonaut.y = 335;
+
 
 
 
