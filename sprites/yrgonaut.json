@@ -1,0 +1,96 @@
+{"frames": {
+
+"eat_01.png":
+{
+	"frame": {"x":1,"y":1,"w":247,"h":308},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":247,"h":308},
+	"sourceSize": {"w":249,"h":308}
+},
+"eat_02.png":
+{
+	"frame": {"x":480,"y":1,"w":224,"h":308},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":224,"h":308},
+	"sourceSize": {"w":226,"h":308}
+},
+"eat_03.png":
+{
+	"frame": {"x":250,"y":1,"w":228,"h":308},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":228,"h":308},
+	"sourceSize": {"w":230,"h":308}
+},
+"eat_04.png":
+{
+	"frame": {"x":931,"y":1,"w":214,"h":308},
+	"rotated": true,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":214,"h":308},
+	"sourceSize": {"w":216,"h":308}
+},
+"eat_05.png":
+{
+	"frame": {"x":706,"y":1,"w":194,"h":308},
+	"rotated": false,
+	"trimmed": true,
+	"spriteSourceSize": {"x":0,"y":0,"w":194,"h":308},
+	"sourceSize": {"w":210,"h":308}
+},
+"eat_06.png":
+{
+	"frame": {"x":1,"y":311,"w":142,"h":308},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":308},
+	"sourceSize": {"w":142,"h":308}
+},
+"idle_01.png":
+{
+	"frame": {"x":311,"y":311,"w":142,"h":308},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":308},
+	"sourceSize": {"w":142,"h":308}
+},
+"idle_02.png":
+{
+	"frame": {"x":621,"y":311,"w":142,"h":308},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":308},
+	"sourceSize": {"w":142,"h":308}
+},
+"idle_03.png":
+{
+	"frame": {"x":931,"y":217,"w":142,"h":308},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":308},
+	"sourceSize": {"w":142,"h":308}
+},
+"idle_04.png":
+{
+	"frame": {"x":931,"y":361,"w":142,"h":308},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":308},
+	"sourceSize": {"w":142,"h":308}
+}},
+"animations": {
+	"eat": ["eat_01.png","eat_02.png","eat_03.png","eat_04.png","eat_05.png","eat_06.png"],
+	"idle": ["idle_01.png","idle_02.png","idle_03.png","idle_04.png"]
+},
+"meta": {
+	"app": "https://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "yrgonaut.png",
+	"format": "RGBA8888",
+	"size": {"w":1240,"h":504},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:3ae1d4aaf005555eae63c94813a28104:98b7c02013f0ca48d578a02c1a9ccf9e:9420e3212baefb9dcd876ac52dbd3285$"
+}
+}
