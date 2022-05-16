@@ -14,9 +14,25 @@ let legstretch_button;
 let stack_overflow_button;
 
 
+class Yrgonaut extends PIXI.AnimatedSprite {
+  constructor(animationId, x, y, animationSpeed, anchor, loop) {
+    const sheet = app.loader.resources["yrgonaut"].spritesheet;
+    super(sheet.animations[animationId]);
+    this.x = x;
+    this.y = y;
+    this.width = this.width / 2.5;
+    this.height = this.height / 2.5;
+    this.animationSpeed = animationSpeed;
+    this.anchor.set(anchor);
+    this.loop = loop;
+    this.play();
+
+  }
+}
+
 class Menu_Item extends PIXI.Sprite {
-  constructor(x = 0, y = 0, texture, interactive, buttonMode) {
-    super(texture);
+  constructor(x = 0, y = 0, textureId, interactive, buttonMode) {
+    super(app.loader.resources[textureId].texture,);
     this.x = x;
     this.y = y;
     this.interactive = interactive
@@ -50,15 +66,11 @@ app.loader
   .add("stack_overflow", "stack_overflow.png")
   //character:
   .add("yrgonaut", "yrgonaut.json")
-  .add("yrgonautpng", "yrgonaut.png")
 
   app.loader.onProgress.add(loadingProgress);
   app.loader.onComplete.add(loadingSuccessful);
   app.loader.onError.add(errorReport);
-
   app.loader.load();
-
-
 }
 
 function loadingProgress(e) {
@@ -76,9 +88,7 @@ function loadingSuccessful() {
   app.stage.addChild(background);
   //create menu:
   create_Menu();
-
-idle();
-
+  idle();
 
   app.ticker.add(gameLoop);
 }
@@ -87,34 +97,38 @@ function gameLoop() {
 }
 
 function create_Menu() {
-  eat_button = new Menu_Item(120, 283, app.loader.resources["fork_and_knife"].texture, true, true);
-  sleep_button = new Menu_Item(190, 283, app.loader.resources["moon"].texture, true, true);
-  computer_button = new Menu_Item(265, 285, app.loader.resources["computer"].texture, true, true);
-  beer_button = new Menu_Item(330, 282, app.loader.resources["beer"].texture, true, true);
-  legstretch_button = new Menu_Item(118, 462, app.loader.resources["legstretch"].texture, true, true);
-  stack_overflow_button = new Menu_Item(185, 464, app.loader.resources["stack_overflow"].texture, true, true);
+  eat_button = new Menu_Item(120, 283, "fork_and_knife", true, true);
+  sleep_button = new Menu_Item(190, 283, "moon", true, true);
+  computer_button = new Menu_Item(265, 285, "computer", true, true);
+  beer_button = new Menu_Item(330, 282, "beer", true, true);
+  legstretch_button = new Menu_Item(118, 462, "legstretch", true, true);
+  stack_overflow_button = new Menu_Item(185, 464, "stack_overflow", true, true);
   app.stage.addChild(eat_button);
   eat_button.on('pointerdown', eat);
   app.stage.addChild(sleep_button);
+  sleep_button.on('pointerdown', sleep);
   app.stage.addChild(computer_button);
   app.stage.addChild(beer_button);
   app.stage.addChild(legstretch_button);
   app.stage.addChild(stack_overflow_button);
 }
-
+function sleep() {
+  app.stage.removeChild(yrgonaut);
+  yrgonaut = new Yrgonaut("sleep", 239, 390, 0.02, 0.5, false)
+  sprite_sheet = app.loader.resources["yrgonaut"].spritesheet;
+  app.stage.addChild(yrgonaut);
+  yrgonaut.play();
+  yrgonaut.onComplete = function () {
+  app.stage.removeChild(yrgonaut);
+  idle();
+  };
+  }
 
 function eat() {
   app.stage.removeChild(yrgonaut);
+  yrgonaut = new Yrgonaut("eat", 239, 390, 0.02, 0.5, false)
   sprite_sheet = app.loader.resources["yrgonaut"].spritesheet;
-  yrgonaut = new PIXI.AnimatedSprite(sprite_sheet.animations["eat"]);
-  yrgonaut.width = yrgonaut.width / 2.5;
-  yrgonaut.height = yrgonaut.height / 2.5;
-  yrgonaut.loop = false;
   app.stage.addChild(yrgonaut);
-  yrgonaut.animationSpeed = 0.02;
-  yrgonaut.anchor.set(0.5);
-  yrgonaut.x = 235
-  yrgonaut.y = 390
   yrgonaut.play();
   yrgonaut.onComplete = function () {
   app.stage.removeChild(yrgonaut);
@@ -123,16 +137,8 @@ function eat() {
   }
 
   function idle() {
-    sprite_sheet = app.loader.resources["yrgonaut"].spritesheet;
-    yrgonaut = new PIXI.AnimatedSprite(sprite_sheet.animations["idle"]);
-    yrgonaut.width = yrgonaut.width / 2.5;
-    yrgonaut.height = yrgonaut.height / 2.5;
+    yrgonaut = new Yrgonaut("idle", 235, 390, 0.009, 0.5, true)
     app.stage.addChild(yrgonaut);
-      yrgonaut.animationSpeed = 0.009;
-      yrgonaut.anchor.set(0.5);
-      yrgonaut.x = 235
-      yrgonaut.y = 390
-      yrgonaut.play();
   }
 
 
