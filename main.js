@@ -12,6 +12,7 @@ let beerButton;
 let legstretchButton;
 let stackOverflowButton;
 let background;
+let buttons = [];
 
 
 class Yrgonaut extends PIXI.AnimatedSprite {
@@ -31,12 +32,13 @@ class Yrgonaut extends PIXI.AnimatedSprite {
 }
 
 class MenuItem extends PIXI.Sprite {
-  constructor(x = 0, y = 0, textureId, interactive, buttonMode) {
-    super(app.loader.resources[textureId].texture,);
+  constructor(x = 0, y = 0, textureId) {
+    super(app.loader.resources[textureId].texture);
     this.x = x;
     this.y = y;
-    this.interactive = interactive
-    this.buttonMode = buttonMode
+    this.interactive = true;
+    this.buttonMode = true;
+    buttons.push(this);
   }
 }
 
@@ -95,12 +97,13 @@ function gameLoop() {
 }
 
 function createMenu() {
-  eatButton = new MenuItem(120, 283, "forkAndKnife", true, true);
-  sleepButton = new MenuItem(190, 283, "moon", true, true);
-  computerButton = new MenuItem(265, 285, "computer", true, true);
-  beerButton = new MenuItem(330, 282, "beer", true, true);
-  legstretchButton = new MenuItem(118, 462, "legstretch", true, true);
-  stackOverflowButton = new MenuItem(185, 464, "stackOverflow", true, true);
+  eatButton = new MenuItem(120, 283, "forkAndKnife");
+  sleepButton = new MenuItem(190, 283, "moon");
+  computerButton = new MenuItem(265, 285, "computer");
+  beerButton = new MenuItem(330, 282, "beer");
+  legstretchButton = new MenuItem(118, 462, "legstretch");
+  stackOverflowButton = new MenuItem(185, 464, "stackOverflow");
+  //buttons.push(eatButton, sleepButton, computerButton, beerButton, legstretch)
   app.stage.addChild(eatButton);
   eatButton.on('pointerdown', eat);
   app.stage.addChild(sleepButton);
@@ -113,42 +116,19 @@ function createMenu() {
 
 function disableButtonsAndIdle(){
   app.stage.removeChild(yrgonaut);
-  eatButton.interactive = false;
-  eatButton.buttonMode = false;
-  sleepButton.interactive = false;
-  sleepButton.buttonMode = false;
-  computerButton.interactive = false;
-  computerButton.buttonMode = false;
-  beerButton.interactive = false;
-  beerButton.buttonMode = false;
-  legstretchButton.interactive = false;
-  legstretchButton.buttonMode = false;
-  stackOverflowButton.interactive = false;
-  stackOverflowButton.buttonMode = false;
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].interactive = false;
+  };
 }
 
 
 function enableButtonsAndIdle(){
   app.stage.addChild(yrgonaut);
-
-  // for (const [key, value] of Object.entries(button)) {
-  //   console.log(`${key}: ${value}`);
-  // }
-  console.log(eatButton);
-  eatButton.interactive = true;
-  eatButton.buttonMode = true;
-  sleepButton.interactive = true;
-  sleepButton.buttonMode = true;
-  computerButton.interactive = true;
-  computerButton.buttonMode = true;
-  beerButton.interactive = true;
-  beerButton.buttonMode = true;
-  legstretchButton.interactive = true;
-  legstretchButton.buttonMode = true;
-  stackOverflowButton.interactive = true;
-  stackOverflowButton.buttonMode = true;
   yrgonaut.onComplete = function () {
     app.stage.removeChild(yrgonaut);
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].interactive = true;
+    };
     idle();
     };
 }
@@ -163,6 +143,7 @@ function sleep() {
 function eat() {
   disableButtonsAndIdle();
   yrgonaut = new Yrgonaut("eat", 239, 390, 0.02, 0.5, false)
+  yrgonaut.animationId = "eat";
   enableButtonsAndIdle();
   }
 
