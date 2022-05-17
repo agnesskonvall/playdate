@@ -165,13 +165,6 @@ function eat() {
 function idle() {
   yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
   app.stage.addChild(yrgonaut);
-  yrgonaut.animationId = 'eat';
-  enableButtonsAndIdle();
-}
-
-function idle() {
-  yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
-  app.stage.addChild(yrgonaut);
 }
 
 function beer() {
