@@ -116,6 +116,7 @@ function createMenu() {
   sleepButton.on('pointerdown', sleep);
   app.stage.addChild(computerButton);
   app.stage.addChild(beerButton);
+  beerButton.on('pointerdown', beer);
   app.stage.addChild(legstretchButton);
   app.stage.addChild(stackOverflowButton);
   app.stage.addChild(statsButton);
@@ -164,4 +165,17 @@ function eat() {
 function idle() {
   yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
   app.stage.addChild(yrgonaut);
+  yrgonaut.animationId = 'eat';
+  enableButtonsAndIdle();
+}
+
+function idle() {
+  yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
+  app.stage.addChild(yrgonaut);
+}
+
+function beer() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('beer', 253, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
 }
