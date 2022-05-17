@@ -15,6 +15,8 @@ let statsButton;
 let background;
 let buttons = [];
 let statistics;
+let stats;
+let showingStats = false;
 
 class Yrgonaut extends PIXI.AnimatedSprite {
   constructor(animationId, x, y, animationSpeed, anchor, loop) {
@@ -131,20 +133,51 @@ function disableButtonsAndIdle() {
 }
 
 function enableButtonsAndIdle() {
-  app.stage.addChild(yrgonaut);
-  yrgonaut.onComplete = function () {
-    app.stage.removeChild(yrgonaut);
+  if (showingStats === false) {
+    app.stage.addChild(yrgonaut);
+    yrgonaut.onComplete = function () {
+      app.stage.removeChild(yrgonaut);
+      for (let i = 0; i < buttons.length; i++) {
+        buttons[i].interactive = true;
+      }
+      idle();
+    };
+  } else {
+    app.stage.removeChild(stats);
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].interactive = true;
     }
+    showingStats = false;
     idle();
-  };
+  }
 }
 
 function showStats() {
+  showingStats = true;
+  disableButtonsAndIdle();
   console.log('coding skills = ' + statistics.codingSkills);
   console.log('happiness = ' + statistics.happiness);
   console.log('tiredness = ' + statistics.tiredness);
+  stats = new PIXI.Text(
+    'Tiredness = ' +
+      statistics.tiredness +
+      '\nHappiness = ' +
+      statistics.happiness +
+      '\nCoding Skills = ' +
+      statistics.codingSkills,
+    {
+      fontFamily: 'VT323',
+      fontSize: 24,
+      fill: 0x000000,
+    }
+  );
+  stats.anchor.set(0.5);
+  stats.x = app.view.width / 2;
+  stats.y = app.view.height / 2;
+  app.stage.addChild(stats);
+  setTimeout(() => {
+    enableButtonsAndIdle();
+  }, 3000);
 }
 
 function sleep() {
