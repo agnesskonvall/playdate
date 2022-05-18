@@ -120,6 +120,7 @@ function createMenu() {
   app.stage.addChild(beerButton);
   beerButton.on('pointerdown', beer);
   app.stage.addChild(legstretchButton);
+  legstretchButton.on('pointerdown', stretch);
   app.stage.addChild(stackOverflowButton);
   app.stage.addChild(statsButton);
   statsButton.on('pointerdown', showStats);
@@ -203,5 +204,11 @@ function idle() {
 function beer() {
   disableButtonsAndIdle();
   yrgonaut = new Yrgonaut('beer', 253, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
+}
+
+function stretch() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('stretch', 262, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
