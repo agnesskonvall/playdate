@@ -1,6 +1,6 @@
 import './style.css';
 import * as PIXI from 'pixi.js';
-import { graphicsUtils, Renderer } from 'pixi.js';
+import { sound } from '@pixi/sound';
 
 const appDiv = document.getElementById('app');
 let app;
@@ -62,20 +62,24 @@ window.onload = function () {
   appDiv.appendChild(app.view);
 
   //preload sprites location:
-  app.loader.baseUrl = 'sprites';
+  app.loader.baseUrl = 'resources';
   //add assets to preload here:
   app.loader
-    .add('yrgotchiBase', 'yrgotchi_base.png')
+    //background:
+    .add('yrgotchiBase', 'sprites/yrgotchi_base.png')
     //icons:
-    .add('beer', 'beer_mug.png')
-    .add('computer', 'computer.png')
-    .add('forkAndKnife', 'fork_and_knife.png')
-    .add('legstretch', 'legstretch.png')
-    .add('moon', 'moon.png')
-    .add('stackOverflow', 'stack_overflow.png')
-    .add('stats', 'stats.png')
+    .add('beer', 'icons/beer_mug.png')
+    .add('computer', 'icons/computer.png')
+    .add('forkAndKnife', 'icons/fork_and_knife.png')
+    .add('legstretch', 'icons/legstretch.png')
+    .add('moon', 'icons/moon.png')
+    .add('stackOverflow', 'icons/stack_overflow.png')
+    .add('stats', 'icons/stats.png')
     //character:
-    .add('yrgonaut', 'yrgonaut.json');
+    .add('yrgonaut', 'sprites/yrgonaut.json')
+    //sounds:
+    .add('attention', 'sounds/attention.mp3')
+    .add('happy', 'sounds/happy.mp3');
 
   app.loader.onProgress.add(loadingProgress);
   app.loader.onComplete.add(loadingSuccessful);
@@ -100,9 +104,12 @@ function loadingSuccessful() {
   statistics = new YrgoStats(5, 5, 0);
   createMenu();
   idle();
+
   app.ticker.add(gameLoop);
 }
 function gameLoop() {}
+
+function createSounds() {}
 
 function createMenu() {
   eatButton = new MenuItem(120, 283, 'forkAndKnife');
@@ -196,7 +203,13 @@ function eat() {
 }
 
 function idle() {
-  yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
+  if (statistics.happiness > statistics.tiredness) {
+    ///
+  } else if (statistics.happiness === statistics.tiredness) {
+    yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
+  } else {
+    ///
+  }
   app.stage.addChild(yrgonaut);
 }
 
