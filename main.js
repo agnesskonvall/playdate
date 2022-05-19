@@ -117,6 +117,7 @@ function createMenu() {
   app.stage.addChild(sleepButton);
   sleepButton.on('pointerdown', sleep);
   app.stage.addChild(computerButton);
+  computerButton.on('pointerdown', code);
   app.stage.addChild(beerButton);
   beerButton.on('pointerdown', beer);
   app.stage.addChild(legstretchButton);
@@ -210,5 +211,11 @@ function beer() {
 function stretch() {
   disableButtonsAndIdle();
   yrgonaut = new Yrgonaut('stretch', 262, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
+}
+
+function code() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('code', 261, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
