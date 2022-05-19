@@ -1,11 +1,11 @@
 @font-face {
-  font-family: 'VT323';
-  src: url(/resources/fonts/VT323.woff2);
+  font-family: "VT323";
+  src: url(components/game/resources/fonts/VT323.woff2);
 }
 
 #app {
   text-align: center;
-  font-family: 'VT323';
+  font-family: "VT323";
 }
 
 body {
@@ -25,7 +25,7 @@ ul {
 }
 
 li {
-  font-family: 'VT323';
+  font-family: "VT323";
   font-size: 24px;
   display: inline;
   margin: 2%;
