@@ -1,5 +1,6 @@
 import * as PIXI from 'pixi.js';
 import { graphicsUtils, Renderer } from 'pixi.js';
+import { sound } from '@pixi/sound';
 
 const appDiv = document.getElementById('game');
 let app;
@@ -16,6 +17,7 @@ let buttons = [];
 let statistics;
 let stats;
 let showingStats = false;
+let mood;
 
 class Yrgonaut extends PIXI.AnimatedSprite {
   constructor(animationId, x, y, animationSpeed, anchor, loop) {
@@ -33,9 +35,10 @@ class Yrgonaut extends PIXI.AnimatedSprite {
 }
 
 class YrgoStats {
-  constructor(happiness, tiredness, codingSkills) {
+  constructor(happiness, tiredness, frustration, codingSkills) {
     this.happiness = happiness;
     this.tiredness = tiredness;
+    this.frustration = frustration;
     this.codingSkills = codingSkills;
   }
 }
@@ -74,7 +77,10 @@ window.onload = function () {
     .add('stackOverflow', 'sprites/stack_overflow.png')
     .add('stats', 'sprites/stats.png')
     //character:
-    .add('yrgonaut', 'sprites/yrgonaut.json');
+    .add('yrgonaut', 'sprites/yrgonaut.json')
+    //sounds:
+    .add('attention', 'sounds/attention.mp3')
+    .add('happy', 'sounds/happy.mp3');
 
   app.loader.onProgress.add(loadingProgress);
   app.loader.onComplete.add(loadingSuccessful);
@@ -96,7 +102,7 @@ function loadingSuccessful() {
   background = new PIXI.Sprite.from(app.loader.resources.yrgotchiBase.texture);
   app.stage.addChild(background);
   //create menu:
-  statistics = new YrgoStats(5, 5, 0);
+  statistics = new YrgoStats(5, 5, 0, 0);
   createMenu();
   idle();
   app.ticker.add(gameLoop);
@@ -160,11 +166,14 @@ function showStats() {
   console.log('coding skills = ' + statistics.codingSkills);
   console.log('happiness = ' + statistics.happiness);
   console.log('tiredness = ' + statistics.tiredness);
+  console.log('anger = ' + statistics.frustration);
   stats = new PIXI.Text(
     'Tiredness = ' +
       statistics.tiredness +
       '\nHappiness = ' +
       statistics.happiness +
+      '\nFrustration = ' +
+      statistics.frustration +
       '\nCoding Skills = ' +
       statistics.codingSkills,
     {
@@ -197,7 +206,22 @@ function eat() {
   enableButtonsAndIdle();
 }
 
+function calculateMood() {
+  if (statistics.frustation > 5) {
+    mood = 'idleFrustrated';
+  } else if (statistics.tiredness > 7) {
+    mood = 'idleSleepy';
+  } else if (statistics.happiness > 6) {
+    mood = 'idleHappy';
+  } else {
+    mood = 'idleNeutral';
+  }
+  return mood;
+}
+
 function idle() {
+  calculateMood();
+  console.log(mood);
   yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
   app.stage.addChild(yrgonaut);
 }
