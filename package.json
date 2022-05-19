@@ -1,5 +1,5 @@
 {
-  "name": "playdate",
+  "name": "vite-project",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -7,11 +7,16 @@
     "build": "vite build",
     "preview": "vite preview"
   },
-  "devDependencies": {
-    "vite": "^2.9.7"
-  },
   "dependencies": {
     "@pixi/sound": "^4.2.0",
-    "pixi.js": "^6.3.2"
+    "pixi.js": "^6.3.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "vite": "^2.9.9"
   }
 }

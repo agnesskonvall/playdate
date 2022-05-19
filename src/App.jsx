@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import './App.css';
-import ScriptsComponent from './components/ScriptsComponent/ScriptsComponent';
+import { useState } from "react";
+import "./App.css";
+import ScriptsComponent from "./components/ScriptsComponent/ScriptsComponent";
 
 function App() {
   return (
