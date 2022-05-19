@@ -8,6 +8,7 @@ const useScript = (url) => {
     script.async = true;
     script.type = 'module';
 
+
     document.body.appendChild(script);
 
     return () => {
