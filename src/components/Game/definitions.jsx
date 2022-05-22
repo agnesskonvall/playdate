@@ -1,0 +1,20 @@
+import * as PIXI from 'pixi.js';
+import { graphicsUtils, Renderer } from 'pixi.js';
+import { sound } from '@pixi/sound';
+
+const appDiv = document.getElementById('game');
+let app;
+let yrgonaut;
+let eatButton;
+let sleepButton;
+let computerButton;
+let beerButton;
+let legstretchButton;
+let stackOverflowButton;
+let statsButton;
+let background;
+let buttons = [];
+let statistics;
+let stats;
+let showingStats = false;
+let mood;
