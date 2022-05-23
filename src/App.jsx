@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import './App.css';
-import ScriptsComponent from './components/ScriptsComponent/ScriptsComponent';
+// import ScriptsComponent from './components/ScriptsComponent/ScriptsComponent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Eat from './pages/Eat';
 import Main from './pages/Main';
