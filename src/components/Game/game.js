@@ -62,7 +62,7 @@ window.onload = function () {
 
   let appDiv = document.createElement('div');
   appDiv.setAttribute('id', 'game');
-  document.querySelector('.App').appendChild(appDiv);
+  document.querySelector('.game').appendChild(appDiv);
   appDiv.appendChild(app.view);
 
   //preload sprites location:

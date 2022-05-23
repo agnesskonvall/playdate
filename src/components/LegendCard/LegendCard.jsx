@@ -18,13 +18,10 @@ const LegendContent = styled.div`
   }
 `;
 
-const LegendCard = () => {
+const LegendCard = (props) => {
   return (
     <LegendContent>
-      <ul>
-        <li>hej</li>
-        <li></li>
-      </ul>
+      <p>{props.instructions}</p>
     </LegendContent>
   );
 };

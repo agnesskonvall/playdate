@@ -1,12 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import ForkAndKnife from '../Game/resources/sprites/fork_and_knife.png';
+import BeerMug from '../Game/resources/sprites/beer_mug.png';
+import Moon from '../Game/resources/sprites/moon.png';
+import Computer from '../Game/resources/sprites/computer_white.png';
+import Legstretch from '../Game/resources/sprites/legstretch.png';
+import StackOverflow from '../Game/resources/sprites/stack_overflow.png';
+import Stats from '../Game/resources/sprites/stats.png';
+
+const EatIcon = styled.img.attrs({
+  src: `${ForkAndKnife}`,
+})``;
+
+const SleepIcon = styled.img.attrs({
+  src: `${Moon}`,
+})``;
+
+const ComputerIcon = styled.img.attrs({
+  src: `${Computer}`,
+})``;
+
+const BeerIcon = styled.img.attrs({
+  src: `${BeerMug}`,
+})``;
+
+const StretchIcon = styled.img.attrs({
+  src: `${Legstretch}`,
+})``;
+
+const StackOverflowIcon = styled.img.attrs({
+  src: `${StackOverflow}`,
+})``;
+
+const StatsIcon = styled.img.attrs({
+  src: `${Stats}`,
+})``;
 
 const LegendContent = styled.div`
   ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
   ul > li {
     display: inline-block;
@@ -23,30 +59,45 @@ const LegendContent = styled.div`
 const Legend = () => {
   return (
     <LegendContent>
+      <p>Instructions</p>
       <ul>
         <li>
-          <Link to="/ata">Äta</Link>
+          <Link to="/ata">
+            <EatIcon />
+          </Link>
         </li>
         <li>
-          <Link to="/sova">Sova</Link>
+          <Link to="/sova">
+            <SleepIcon />
+          </Link>
         </li>
         <li>
-          <Link to="/programmera">Programmera</Link>
+          <Link to="/programmera">
+            <ComputerIcon />
+          </Link>
         </li>
         <li>
-          <Link to="/aw">AW</Link>
+          <Link to="/aw">
+            <BeerIcon />
+          </Link>
         </li>
         <li>
-          <Link to="/benstrackare">Bensträckare</Link>
+          <Link to="/benstrackare">
+            <StretchIcon />
+          </Link>
         </li>
         <li>
-          <Link to="/stackoverflow">StackOverflow</Link>
+          <Link to="/stackoverflow">
+            <StackOverflowIcon />
+          </Link>
         </li>
         <li>
           <Link to="/placeholder">Placeholder</Link>
         </li>
         <li>
-          <Link to="/stas">Stats</Link>
+          <Link to="/stats">
+            <StatsIcon />
+          </Link>
         </li>
       </ul>
     </LegendContent>

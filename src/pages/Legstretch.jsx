@@ -1,12 +1,12 @@
 import LegendCard from '../components/LegendCard/LegendCard';
 import LegendNav from '../components/LegendNav/LegendNav';
-const Eat = () => {
+const Legstretch = () => {
   return (
     <>
       <LegendNav />
-      <LegendCard instructions="i am eat" />
+      <LegendCard instructions="i am legstretch" />
     </>
   );
 };
 
-export default Eat;
+export default Legstretch;
