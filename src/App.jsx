@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import Legend from './components/LegendCard/Legend';
 import './App.css';
 import ScriptsComponent from './components/ScriptsComponent/ScriptsComponent';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -9,7 +8,7 @@ import Main from './pages/Main';
 function App() {
   return (
     <div className="App">
-      <div id="game"></div>
+      {/* <div id="game"></div> */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
@@ -23,7 +22,7 @@ function App() {
           <Route path="/stats" element={<Stats />} /> */}
         </Routes>
       </BrowserRouter>
-      <ScriptsComponent />
+      {/* <ScriptsComponent /> */}
     </div>
   );
 }

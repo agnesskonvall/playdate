@@ -1,4 +1,4 @@
-import Legend from '../components/LegendCard/Legend';
+import LegendNav from '../components/LegendNav/LegendNav';
 const Eat = () => {
   return (
     <>

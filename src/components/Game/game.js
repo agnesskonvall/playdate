@@ -1,3 +1,23 @@
+import * as PIXI from 'pixi.js';
+import { graphicsUtils, Renderer } from 'pixi.js';
+import { sound } from '@pixi/sound';
+
+let app;
+let yrgonaut;
+let eatButton;
+let sleepButton;
+let computerButton;
+let beerButton;
+let legstretchButton;
+let stackOverflowButton;
+let statsButton;
+let background;
+let buttons = [];
+let statistics;
+let stats;
+let showingStats = false;
+let mood;
+
 class Yrgonaut extends PIXI.AnimatedSprite {
   constructor(animationId, x, y, animationSpeed, anchor, loop) {
     const sheet = app.loader.resources['yrgonaut'].spritesheet;
@@ -32,6 +52,7 @@ class MenuItem extends PIXI.Sprite {
     buttons.push(this);
   }
 }
+
 window.onload = function () {
   app = new PIXI.Application({
     width: 500,
@@ -39,6 +60,9 @@ window.onload = function () {
     backgroundAlpha: 0,
   });
 
+  let appDiv = document.createElement('div');
+  appDiv.setAttribute('id', 'game');
+  document.querySelector('.App').appendChild(appDiv);
   appDiv.appendChild(app.view);
 
   //preload sprites location:
@@ -76,6 +100,7 @@ function errorReport(e) {
 
 function loadingSuccessful() {
   console.log('loading complete');
+
   //add background:
   background = new PIXI.Sprite.from(app.loader.resources.yrgotchiBase.texture);
   app.stage.addChild(background);
@@ -136,4 +161,94 @@ function enableButtonsAndIdle() {
     showingStats = false;
     idle();
   }
+}
+
+function showStats() {
+  showingStats = true;
+  disableButtonsAndIdle();
+  console.log('coding skills = ' + statistics.codingSkills);
+  console.log('happiness = ' + statistics.happiness);
+  console.log('tiredness = ' + statistics.tiredness);
+  console.log('anger = ' + statistics.frustration);
+  stats = new PIXI.Text(
+    'Tiredness = ' +
+      statistics.tiredness +
+      '\nHappiness = ' +
+      statistics.happiness +
+      '\nFrustration = ' +
+      statistics.frustration +
+      '\nCoding Skills = ' +
+      statistics.codingSkills,
+    {
+      fontFamily: 'VT323',
+      fontSize: 24,
+      fill: 0x000000,
+    }
+  );
+  stats.anchor.set(0.5);
+  stats.x = app.view.width / 2;
+  stats.y = app.view.height / 2;
+  app.stage.addChild(stats);
+  setTimeout(() => {
+    enableButtonsAndIdle();
+  }, 3000);
+}
+
+function sleep() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('sleep', 271, 390, 0.02, 0.5, false);
+  statistics.tiredness -= 2;
+  statistics.tiredness = Math.max(statistics.tiredness, 0);
+  enableButtonsAndIdle();
+}
+
+function eat() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('eat', 253, 390, 0.02, 0.5, false);
+  statistics.happiness += 2;
+  enableButtonsAndIdle();
+}
+
+function calculateMood() {
+  if (statistics.frustation > 5) {
+    mood = 'idleFrustrated';
+  } else if (statistics.tiredness > 7) {
+    mood = 'idleSleepy';
+  } else if (statistics.happiness > 6) {
+    mood = 'idleHappy';
+  } else {
+    mood = 'idleNeutral';
+  }
+  return mood;
+}
+
+function idle() {
+  calculateMood();
+  console.log(mood);
+  yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
+  app.stage.addChild(yrgonaut);
+}
+
+function beer() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('beer', 253, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
+}
+
+function stretch() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('stretch', 262, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
+}
+
+function code() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('code', 261, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
+}
+
+function stack() {
+  disableButtonsAndIdle();
+  yrgonaut = new Yrgonaut('stack', 277, 390, 0.02, 0.5, false);
+  enableButtonsAndIdle();
 }

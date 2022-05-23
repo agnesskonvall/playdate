@@ -1,8 +1,8 @@
-import Legend from '../components/LegendCard/Legend';
+import LegendNav from '../components/LegendNav/LegendNav';
 const Main = () => {
   return (
     <>
-      <Legend />
+      <LegendNav />
     </>
   );
 };

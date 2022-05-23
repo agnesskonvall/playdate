@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const EatContent = styled.div`
+const LegendContent = styled.div`
   align-self: flex-start;
   ul {
     padding: 0;
@@ -18,15 +18,15 @@ const EatContent = styled.div`
   }
 `;
 
-const Eat = () => {
+const LegendCard = () => {
   return (
-    <EatContent>
+    <LegendContent>
       <ul>
         <li>hej</li>
         <li></li>
       </ul>
-    </EatContent>
+    </LegendContent>
   );
 };
 
-export default Eat;
+export default LegendCard;
