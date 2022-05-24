@@ -1,6 +1,8 @@
 import * as PIXI from 'pixi.js';
-import { graphicsUtils, Renderer } from 'pixi.js';
 import { sound } from '@pixi/sound';
+import Yrgonaut from './yrgonaut';
+import YrgoStats from './yrgostats';
+import MenuItem from './menuitem';
 
 let app;
 let yrgonaut;
@@ -12,46 +14,31 @@ let legstretchButton;
 let stackOverflowButton;
 let statsButton;
 let background;
-let buttons = [];
 let statistics;
 let stats;
 let showingStats = false;
 let mood;
+let buttons = [];
 
-class Yrgonaut extends PIXI.AnimatedSprite {
-  constructor(animationId, x, y, animationSpeed, anchor, loop) {
-    const sheet = app.loader.resources['yrgonaut'].spritesheet;
-    super(sheet.animations[animationId]);
-    this.x = x;
-    this.y = y;
-    this.width = this.width / 2.5;
-    this.height = this.height / 2.5;
-    this.animationSpeed = animationSpeed;
-    this.anchor.set(anchor);
-    this.loop = loop;
-    this.play();
-  }
-}
+// class YrgoStats {
+//   constructor(happiness, tiredness, frustration, codingSkills) {
+//     this.happiness = happiness;
+//     this.tiredness = tiredness;
+//     this.frustration = frustration;
+//     this.codingSkills = codingSkills;
+//   }
+// }
 
-class YrgoStats {
-  constructor(happiness, tiredness, frustration, codingSkills) {
-    this.happiness = happiness;
-    this.tiredness = tiredness;
-    this.frustration = frustration;
-    this.codingSkills = codingSkills;
-  }
-}
-
-class MenuItem extends PIXI.Sprite {
-  constructor(x = 0, y = 0, textureId) {
-    super(app.loader.resources[textureId].texture);
-    this.x = x;
-    this.y = y;
-    this.interactive = true;
-    this.buttonMode = true;
-    buttons.push(this);
-  }
-}
+// class MenuItem extends PIXI.Sprite {
+//   constructor(x = 0, y = 0, textureId) {
+//     super(app.loader.resources[textureId].texture);
+//     this.x = x;
+//     this.y = y;
+//     this.interactive = true;
+//     this.buttonMode = true;
+//     buttons.push(this);
+//   }
+// }
 
 window.onload = function () {
   app = new PIXI.Application({
@@ -100,6 +87,7 @@ function errorReport(e) {
 
 function loadingSuccessful() {
   console.log('loading complete');
+  // console.log(app.loader.resources['forkAndKnife'].texture);
 
   //add background:
   background = new PIXI.Sprite.from(app.loader.resources.yrgotchiBase.texture);
@@ -113,13 +101,13 @@ function loadingSuccessful() {
 function gameLoop() {}
 
 function createMenu() {
-  eatButton = new MenuItem(120, 283, 'forkAndKnife');
-  sleepButton = new MenuItem(190, 283, 'moon');
-  computerButton = new MenuItem(265, 285, 'computer');
-  beerButton = new MenuItem(330, 282, 'beer');
-  legstretchButton = new MenuItem(118, 462, 'legstretch');
-  stackOverflowButton = new MenuItem(185, 464, 'stackOverflow');
-  statsButton = new MenuItem(330, 460, 'stats');
+  eatButton = new MenuItem(app, 120, 283, 'forkAndKnife', buttons);
+  sleepButton = new MenuItem(app, 190, 283, 'moon', buttons);
+  computerButton = new MenuItem(app, 265, 285, 'computer', buttons);
+  beerButton = new MenuItem(app, 330, 282, 'beer', buttons);
+  legstretchButton = new MenuItem(app, 118, 462, 'legstretch', buttons);
+  stackOverflowButton = new MenuItem(app, 185, 464, 'stackOverflow', buttons);
+  statsButton = new MenuItem(app, 330, 460, 'stats', buttons);
   app.stage.addChild(eatButton);
   eatButton.on('pointerdown', eat);
   app.stage.addChild(sleepButton);
@@ -196,7 +184,7 @@ function showStats() {
 
 function sleep() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('sleep', 271, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'sleep', 271, 390, 0.02, 0.5, false);
   statistics.tiredness -= 2;
   statistics.tiredness = Math.max(statistics.tiredness, 0);
   enableButtonsAndIdle();
@@ -204,7 +192,7 @@ function sleep() {
 
 function eat() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('eat', 253, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'eat', 253, 390, 0.02, 0.5, false);
   statistics.happiness += 2;
   enableButtonsAndIdle();
 }
@@ -225,30 +213,30 @@ function calculateMood() {
 function idle() {
   calculateMood();
   console.log(mood);
-  yrgonaut = new Yrgonaut('idle', 235, 390, 0.009, 0.5, true);
+  yrgonaut = new Yrgonaut(app, 'idle', 235, 390, 0.009, 0.5, true);
   app.stage.addChild(yrgonaut);
 }
 
 function beer() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('beer', 253, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'beer', 253, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
 
 function stretch() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('stretch', 262, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'stretch', 262, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
 
 function code() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('code', 261, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'code', 261, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
 
 function stack() {
   disableButtonsAndIdle();
-  yrgonaut = new Yrgonaut('stack', 277, 390, 0.02, 0.5, false);
+  yrgonaut = new Yrgonaut(app, 'stack', 277, 390, 0.02, 0.5, false);
   enableButtonsAndIdle();
 }
