@@ -1,21 +1,6 @@
 import Yrgonaut from './yrgonaut';
 import './game.js';
-
-// export default function Idle(statistics, app, yrgonaut) {
-//   let mood;
-//   if (statistics.frustation > 5) {
-//     mood = 'idleFrustrated';
-//   } else if (statistics.tiredness > 7) {
-//     mood = 'idleSleepy';
-//   } else if (statistics.happiness > 6) {
-//     mood = 'idleHappy';
-//   } else {
-//     mood = 'idleNeutral';
-//   }
-//   console.log(mood);
-//   yrgonaut = new Yrgonaut(app, 'idle', 235, 390, 0.009, 0.5, true);
-//   app.stage.addChild(yrgonaut);
-// }
+import * as PIXI from 'pixi.js';
 
 export default class Animations {
   statistics;
@@ -82,5 +67,76 @@ export default class Animations {
     this.yrgonaut = new Yrgonaut(this.app, 'eat', 253, 390, 0.02, 0.5, false);
     this.statistics.happiness += 2;
     this.enableButtonsAndIdle();
+  }
+
+  Sleep() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(this.app, 'sleep', 271, 390, 0.02, 0.5, false);
+    this.statistics.tiredness -= 2;
+    this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
+    this.enableButtonsAndIdle();
+  }
+
+  Code() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(this.app, 'code', 261, 390, 0.02, 0.5, false);
+    this.enableButtonsAndIdle();
+  }
+
+  Beer() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(this.app, 'beer', 253, 390, 0.02, 0.5, false);
+    this.enableButtonsAndIdle();
+  }
+
+  Stretch() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(
+      this.app,
+      'stretch',
+      262,
+      390,
+      0.02,
+      0.5,
+      false
+    );
+    this.enableButtonsAndIdle();
+  }
+
+  Stack() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(this.app, 'stack', 277, 390, 0.02, 0.5, false);
+    this.enableButtonsAndIdle();
+  }
+
+  ShowStats() {
+    this.showingStats = true;
+    this.disableButtonsAndIdle();
+    console.log('coding skills = ' + this.statistics.codingSkills);
+    console.log('happiness = ' + this.statistics.happiness);
+    console.log('tiredness = ' + this.statistics.tiredness);
+    console.log('anger = ' + this.statistics.frustration);
+    this.stats = new PIXI.Text(
+      'Tiredness = ' +
+        this.statistics.tiredness +
+        '\nHappiness = ' +
+        this.statistics.happiness +
+        '\nFrustration = ' +
+        this.statistics.frustration +
+        '\nCoding Skills = ' +
+        this.statistics.codingSkills,
+      {
+        fontFamily: 'VT323',
+        fontSize: 24,
+        fill: 0x000000,
+      }
+    );
+    this.stats.anchor.set(0.5);
+    this.stats.x = this.app.view.width / 2;
+    this.stats.y = this.app.view.height / 2 + 35;
+    this.app.stage.addChild(this.stats);
+    setTimeout(() => {
+      this.enableButtonsAndIdle();
+    }, 3000);
   }
 }
