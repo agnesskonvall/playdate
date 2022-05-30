@@ -35,7 +35,7 @@ window.onload = function () {
   appDiv.appendChild(app.view);
 
   //preload sprites location:
-  app.loader.baseUrl = 'src/components/game/resources';
+  app.loader.baseUrl = '/resources/';
 
   //add assets to preload here:
   app.loader
@@ -49,7 +49,7 @@ window.onload = function () {
     .add('stackOverflow', 'sprites/stack_overflow.png')
     .add('stats', 'sprites/stats.png')
     //character:
-    .add('yrgonaut', 'sprites/yrgonaut.json')
+    .add('yrgonaut', 'sprites/yrgonaut_sheet.json')
     //sounds:
     .add('attention', 'sounds/attention.mp3')
     .add('happy', 'sounds/happy.mp3');

@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'VT323';
-  src: url(components/game/resources/fonts/VT323.woff2);
+  src: url(/resources/fonts/VT323.woff2);
 }
 
 body {

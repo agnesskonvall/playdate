@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import ForkAndKnife from '../Game/resources/sprites/fork_and_knife.png';
-import BeerMug from '../Game/resources/sprites/beer_mug.png';
-import Moon from '../Game/resources/sprites/moon.png';
-import Computer from '../Game/resources/sprites/computer_white.png';
-import Legstretch from '../Game/resources/sprites/legstretch.png';
-import StackOverflow from '../Game/resources/sprites/stack_overflow.png';
-import Stats from '../Game/resources/sprites/stats.png';
+import ForkAndKnife from '/resources/sprites/fork_and_knife.png';
+import BeerMug from '/resources/sprites/beer_mug.png';
+import Moon from '/resources/sprites/moon.png';
+import Computer from '/resources/sprites/computer_white.png';
+import Legstretch from '/resources/sprites/legstretch.png';
+import StackOverflow from '/resources/sprites/stack_overflow.png';
+import Stats from '/resources/sprites/stats.png';
 
 const EatIcon = styled.img.attrs({
   src: `${ForkAndKnife}`,
