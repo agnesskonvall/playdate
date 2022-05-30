@@ -22,16 +22,24 @@ export default class Animations {
 
   Idle() {
     if (this.statistics.frustation > 5) {
-      this.mood = 'idleFrustrated';
+      this.mood = 'angry_idle';
     } else if (this.statistics.tiredness > 7) {
-      this.mood = 'idleSleepy';
+      this.mood = 'tired_idle';
     } else if (this.statistics.happiness > 6) {
-      this.mood = 'idleHappy';
+      this.mood = 'happy_idle';
     } else {
-      this.mood = 'idleNeutral';
+      this.mood = 'neutral_idle';
     }
     console.log(this.mood);
-    this.yrgonaut = new Yrgonaut(this.app, 'idle', 235, 390, 0.009, 0.5, true);
+    this.yrgonaut = new Yrgonaut(
+      this.app,
+      this.mood,
+      235,
+      390,
+      0.009,
+      0.5,
+      true
+    );
     this.app.stage.addChild(this.yrgonaut);
   }
 

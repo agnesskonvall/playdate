@@ -13,6 +13,7 @@ let beerButton;
 let legstretchButton;
 let stackOverflowButton;
 let statsButton;
+let githubButton;
 let background;
 let statistics;
 let stats;
@@ -47,6 +48,7 @@ window.onload = function () {
     .add('legstretch', 'sprites/legstretch.png')
     .add('moon', 'sprites/moon.png')
     .add('stackOverflow', 'sprites/stack_overflow.png')
+    .add('github', 'sprites/github.png')
     .add('stats', 'sprites/stats.png')
     //character:
     .add('yrgonaut', 'sprites/yrgonaut_sheet.json')
@@ -94,7 +96,8 @@ function loadingSuccessful() {
   computerButton = new MenuItem(app, 265, 285, 'computer', buttons);
   beerButton = new MenuItem(app, 330, 282, 'beer', buttons);
   legstretchButton = new MenuItem(app, 118, 462, 'legstretch', buttons);
-  stackOverflowButton = new MenuItem(app, 185, 464, 'stackOverflow', buttons);
+  stackOverflowButton = new MenuItem(app, 190, 464, 'stackOverflow', buttons);
+  githubButton = new MenuItem(app, 262, 461, 'github', buttons);
   statsButton = new MenuItem(app, 330, 460, 'stats', buttons);
   app.stage.addChild(eatButton);
   eatButton.on('pointerdown', animations.Eat.bind(animations));
@@ -108,6 +111,8 @@ function loadingSuccessful() {
   legstretchButton.on('pointerdown', animations.Stretch.bind(animations));
   app.stage.addChild(stackOverflowButton);
   stackOverflowButton.on('pointerdown', animations.Stack.bind(animations));
+  app.stage.addChild(githubButton);
+  //githubButton.on('pointerdown', animations.Github.bind(animations));
   app.stage.addChild(statsButton);
   statsButton.on('pointerdown', animations.ShowStats.bind(animations));
 
