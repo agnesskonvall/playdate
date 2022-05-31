@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import { sound } from '@pixi/sound';
 import YrgoStats from './yrgostats';
 import MenuItem from './menuitem';
 import Animations from './animations';
@@ -54,7 +53,9 @@ window.onload = function () {
     .add('yrgonaut', 'sprites/yrgonaut_sheet.json')
     //sounds:
     .add('attention', 'sounds/attention.mp3')
-    .add('happy', 'sounds/happy.mp3');
+    .add('happy', 'sounds/happy.mp3')
+    .add('frustrated', 'sounds/frustrated.mp3')
+    .add('tired', 'sounds/tired.mp3');
 
   app.loader.onProgress.add(loadingProgress);
   app.loader.onComplete.add(loadingSuccessful);
@@ -72,7 +73,6 @@ function errorReport(e) {
 
 function loadingSuccessful() {
   console.log('loading complete');
-
   //render stats object:
   statistics = new YrgoStats(5, 5, 0, 0);
 
