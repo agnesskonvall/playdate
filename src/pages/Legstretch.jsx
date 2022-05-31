@@ -4,7 +4,7 @@ const Legstretch = () => {
   return (
     <>
       <LegendNav />
-      <LegendCard instructions="BENSTRÄCKARE minst varje timme. Helst oftare om Vincent får bestämma. Tiredness -2" />
+      <LegendCard instructions="BENSTRÄCKARE minst varje timme. Helst oftare om Vincent får bestämma. Tiredness -1" />
     </>
   );
 };

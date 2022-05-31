@@ -4,7 +4,7 @@ const StackOverflow = () => {
   return (
     <>
       <LegendNav />
-      <LegendCard instructions="StackOverFlow har svar på allt. Eller? Välkommen till ett oändligt luftslott av svar på alla dina frågor. Frustration +1 & Coding skills +2" />
+      <LegendCard instructions="StackOverFlow har svar på allt. Eller? Välkommen till ett oändligt luftslott av svar på alla dina frågor. Frustration +2 & Coding skills +2" />
     </>
   );
 };
