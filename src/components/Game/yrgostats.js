@@ -1,5 +1,4 @@
 import './game.js';
-import * as PIXI from 'pixi.js';
 
 export default class YrgoStats {
   showingStats;

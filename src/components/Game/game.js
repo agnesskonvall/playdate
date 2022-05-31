@@ -26,13 +26,8 @@ window.onload = function () {
     backgroundAlpha: 0,
   });
 
-  //render a div to place canvas in:
-  let appDiv = document.createElement('div');
-  appDiv.setAttribute('id', 'game');
-
   //render canvas:
-  document.querySelector('.game').appendChild(appDiv);
-  appDiv.appendChild(app.view);
+  document.getElementById('game').appendChild(app.view);
 
   //preload sprites location:
   app.loader.baseUrl = '/resources/';
@@ -52,6 +47,8 @@ window.onload = function () {
     //character:
     .add('yrgonaut', 'sprites/yrgonaut_sheet.json')
     //sounds:
+    .add('frustrated', 'sounds/frustrated.mp3')
+    .add('tired', 'sounds/tired.mp3')
     .add('attention', 'sounds/attention.mp3')
     .add('happy', 'sounds/happy.mp3')
     .add('frustrated', 'sounds/frustrated.mp3')
@@ -85,6 +82,9 @@ function loadingSuccessful() {
     showingStats,
     stats
   );
+
+  //remove loading div
+  document.querySelector('.loading').remove();
 
   //render background:
   background = new PIXI.Sprite.from(app.loader.resources.yrgotchiBase.texture);
