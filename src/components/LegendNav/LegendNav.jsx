@@ -60,6 +60,16 @@ const LegendContent = styled.div`
     color: black;
     text-decoration: none;
   }
+
+  @media only screen and (max-width: 500px) {
+    img {
+      width: 70%;
+    }
+
+    ul > li {
+      margin: 0.5rem;
+    }
+  }
 `;
 
 const Legend = () => {
