@@ -9,6 +9,7 @@ import Afterwork from './pages/Afterwork';
 import Legstretch from './pages/Legstretch';
 import Stackoverflow from './pages/Stackoverflow';
 import Stats from './pages/Stats';
+import Github from './pages/Github';
 import Main from './pages/Main';
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
           <Route path="/aw" element={<Afterwork />} />
           <Route path="/benstrackare" element={<Legstretch />} />
           <Route path="/stackoverflow" element={<Stackoverflow />} />
-          {/* <Route path="/placeholder" element={<Placeholder />} /> */}
+          <Route path="/placeholder" element={<Github />} />
           <Route path="/stats" element={<Stats />} />
         </Routes>
       </BrowserRouter>
