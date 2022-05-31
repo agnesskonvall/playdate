@@ -1,5 +1,4 @@
 import * as PIXI from 'pixi.js';
-import { sound } from '@pixi/sound';
 import YrgoStats from './yrgostats';
 import MenuItem from './menuitem';
 import Animations from './animations';
@@ -20,10 +19,6 @@ let stats;
 let showingStats = false;
 let buttons = [];
 
-//render a div to place canvas in:
-let appDiv = document.createElement('div');
-appDiv.setAttribute('id', 'game');
-
 window.onload = function () {
   app = new PIXI.Application({
     width: 500,
@@ -32,8 +27,7 @@ window.onload = function () {
   });
 
   //render canvas:
-  document.querySelector('.game').appendChild(appDiv);
-  appDiv.appendChild(app.view);
+  document.getElementById('game').appendChild(app.view);
 
   //preload sprites location:
   app.loader.baseUrl = '/resources/';

@@ -21,6 +21,11 @@ export default class Animations {
   }
 
   Idle() {
+    //prevent stats from being less than 0:
+    this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
+    this.statistics.happiness = Math.max(this.statistics.happiness, 0);
+    this.statistics.frustration = Math.max(this.statistics.frustration, 0);
+
     if (this.statistics.frustration > 5) {
       this.mood = 'angry_idle';
     } else if (this.statistics.tiredness > 7) {
@@ -81,9 +86,8 @@ export default class Animations {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'sleep', 271, 390, 0.02, 0.5, false);
     this.statistics.tiredness -= 2;
-    this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
     this.statistics.frustration -= 3;
-    this.statistics.tiredness = Math.max(this.statistics.frustration, 0);
+    this.statistics.happiness -= 1;
     this.enableButtonsAndIdle();
   }
 
@@ -114,9 +118,7 @@ export default class Animations {
       false
     );
     this.statistics.tiredness -= 1;
-    this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
     this.statistics.frustration -= 1;
-    this.statistics.frustration = Math.max(this.statistics.frustration, 0);
     this.enableButtonsAndIdle();
   }
 
@@ -125,6 +127,7 @@ export default class Animations {
     this.yrgonaut = new Yrgonaut(this.app, 'stack', 277, 390, 0.02, 0.5, false);
     this.statistics.frustration += 2;
     this.statistics.codingSkills += 2;
+    this.statistics.happiness -= 2;
     this.enableButtonsAndIdle();
   }
 
