@@ -9,6 +9,7 @@ const LegendContent = styled.div`
   align-self: center;
   font-family: 'VT323';
   font-size: 24px;
+  max-width: 620px;
   ul {
     padding: 0;
   }

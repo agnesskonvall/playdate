@@ -21,7 +21,7 @@ export default class Animations {
   }
 
   Idle() {
-    if (this.statistics.frustation > 5) {
+    if (this.statistics.frustration > 5) {
       this.mood = 'angry_idle';
     } else if (this.statistics.tiredness > 7) {
       this.mood = 'tired_idle';
@@ -90,7 +90,7 @@ export default class Animations {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'code', 261, 390, 0.02, 0.5, false);
     this.statistics.codingSkills += 2;
-    this.statistics.tiredness += 1;
+    this.statistics.tiredness += 2;
     console.log(this.statistics.tiredness);
     this.enableButtonsAndIdle();
   }
@@ -120,7 +120,7 @@ export default class Animations {
   Stack() {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'stack', 277, 390, 0.02, 0.5, false);
-    this.statistics.frustation += 1;
+    this.statistics.frustration += 2;
     this.statistics.codingSkills += 2;
     this.enableButtonsAndIdle();
   }
@@ -137,17 +137,13 @@ export default class Animations {
       false
     );
     this.statistics.codingSkills += 1;
-    this.statistics.frustation += 1;
+    this.statistics.frustration += 1;
     this.enableButtonsAndIdle();
   }
 
   ShowStats() {
     this.showingStats = true;
     this.disableButtonsAndIdle();
-    console.log('coding skills = ' + this.statistics.codingSkills);
-    console.log('happiness = ' + this.statistics.happiness);
-    console.log('tiredness = ' + this.statistics.tiredness);
-    console.log('anger = ' + this.statistics.frustration);
     this.stats = new PIXI.Text(
       'Tiredness = ' +
         this.statistics.tiredness +

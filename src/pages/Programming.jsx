@@ -4,7 +4,7 @@ const Programming = () => {
   return (
     <>
       <LegendNav />
-      <LegendCard instructions="Programmera gör vi hela dagen alla dagar. Coding skills +2 & Tiredness + 1" />
+      <LegendCard instructions="Programmera gör vi hela dagen alla dagar. Coding skills +2 & Tiredness +2" />
     </>
   );
 };
