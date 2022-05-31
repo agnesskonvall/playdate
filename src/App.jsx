@@ -20,7 +20,7 @@ function App() {
         <br />
         (desktop support only)
       </div>
-      <div className="gasme"></div>
+      <div className="game"></div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
