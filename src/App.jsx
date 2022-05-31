@@ -15,8 +15,12 @@ import Main from './pages/Main';
 function App() {
   return (
     <div className="App">
-      <div className="loading">Loading...</div>
-      <div className="game"></div>
+      <div className="loading">
+        .......Loading.......
+        <br />
+        (desktop support only)
+      </div>
+      <div className="gasme"></div>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Main />} />
