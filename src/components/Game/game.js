@@ -20,16 +20,16 @@ let stats;
 let showingStats = false;
 let buttons = [];
 
+//render a div to place canvas in:
+let appDiv = document.createElement('div');
+appDiv.setAttribute('id', 'game');
+
 window.onload = function () {
   app = new PIXI.Application({
     width: 500,
     height: 700,
     backgroundAlpha: 0,
   });
-
-  //render a div to place canvas in:
-  let appDiv = document.createElement('div');
-  appDiv.setAttribute('id', 'game');
 
   //render canvas:
   document.querySelector('.game').appendChild(appDiv);
