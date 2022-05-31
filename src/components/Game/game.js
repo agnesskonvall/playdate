@@ -86,6 +86,9 @@ function loadingSuccessful() {
     stats
   );
 
+  //remove loading div
+  document.querySelector('.loading').remove();
+
   //render background:
   background = new PIXI.Sprite.from(app.loader.resources.yrgotchiBase.texture);
   app.stage.addChild(background);

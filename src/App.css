@@ -4,14 +4,18 @@
 }
 
 body {
-  margin: 0;
+  margin: 2px;
+  font-family: 'VT323';
 }
 
 .App {
   display: flex;
   flex-direction: column;
   align-content: center;
+  align-items: center;
+  font-size: 300%;
 }
+
 #game {
   display: flex;
   align-content: center;
@@ -25,9 +29,6 @@ canvas {
 .legend {
   width: 100%;
   text-align: center;
-}
-
-ul {
 }
 
 li {

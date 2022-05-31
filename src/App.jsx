@@ -15,6 +15,7 @@ import Main from './pages/Main';
 function App() {
   return (
     <div className="App">
+      <div className="loading">Loading...</div>
       <div className="game"></div>
       <BrowserRouter>
         <Routes>
