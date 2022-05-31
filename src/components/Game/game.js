@@ -47,8 +47,6 @@ window.onload = function () {
     //character:
     .add('yrgonaut', 'sprites/yrgonaut_sheet.json')
     //sounds:
-    .add('frustrated', 'sounds/frustrated.mp3')
-    .add('tired', 'sounds/tired.mp3')
     .add('attention', 'sounds/attention.mp3')
     .add('happy', 'sounds/happy.mp3')
     .add('frustrated', 'sounds/frustrated.mp3')
