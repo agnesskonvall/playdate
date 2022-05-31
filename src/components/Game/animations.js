@@ -113,7 +113,8 @@ export default class Animations {
       0.5,
       false
     );
-    this.statistics.tiredness += 2;
+    this.statistics.tiredness -= 1;
+    this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
     this.enableButtonsAndIdle();
   }
 
