@@ -50,7 +50,9 @@ window.onload = function () {
     .add('frustrated', 'sounds/frustrated.mp3')
     .add('tired', 'sounds/tired.mp3')
     .add('attention', 'sounds/attention.mp3')
-    .add('happy', 'sounds/happy.mp3');
+    .add('happy', 'sounds/happy.mp3')
+    .add('frustrated', 'sounds/frustrated.mp3')
+    .add('tired', 'sounds/tired.mp3');
 
   app.loader.onProgress.add(loadingProgress);
   app.loader.onComplete.add(loadingSuccessful);
@@ -68,7 +70,6 @@ function errorReport(e) {
 
 function loadingSuccessful() {
   console.log('loading complete');
-
   //render stats object:
   statistics = new YrgoStats(5, 5, 0, 0);
 

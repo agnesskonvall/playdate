@@ -22,6 +22,20 @@ export default class Animations {
   }
 
   Idle() {
+    if (this.statistics.frustration > 5) {
+      this.mood = 'angry_idle';
+      sound.play('frustrated');
+    } else if (this.statistics.tiredness > 7) {
+      this.mood = 'tired_idle';
+      sound.play('tired');
+    } else if (this.statistics.happiness > 6) {
+      this.mood = 'happy_idle';
+      sound.play('happy');
+    } else {
+      this.mood = 'neutral_idle';
+    }
+    console.log(this.mood);
+
     this.yrgonaut = new Yrgonaut(
       this.app,
       this.mood,
