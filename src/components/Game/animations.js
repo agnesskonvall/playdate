@@ -30,7 +30,6 @@ export default class Animations {
     } else {
       this.mood = 'neutral_idle';
     }
-    console.log(this.mood);
     this.yrgonaut = new Yrgonaut(
       this.app,
       this.mood,
@@ -83,6 +82,8 @@ export default class Animations {
     this.yrgonaut = new Yrgonaut(this.app, 'sleep', 271, 390, 0.02, 0.5, false);
     this.statistics.tiredness -= 2;
     this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
+    this.statistics.frustration -= 3;
+    this.statistics.tiredness = Math.max(this.statistics.frustration, 0);
     this.enableButtonsAndIdle();
   }
 
@@ -91,7 +92,6 @@ export default class Animations {
     this.yrgonaut = new Yrgonaut(this.app, 'code', 261, 390, 0.02, 0.5, false);
     this.statistics.codingSkills += 2;
     this.statistics.tiredness += 2;
-    console.log(this.statistics.tiredness);
     this.enableButtonsAndIdle();
   }
 
@@ -115,6 +115,8 @@ export default class Animations {
     );
     this.statistics.tiredness -= 1;
     this.statistics.tiredness = Math.max(this.statistics.tiredness, 0);
+    this.statistics.frustration -= 1;
+    this.statistics.frustration = Math.max(this.statistics.frustration, 0);
     this.enableButtonsAndIdle();
   }
 
@@ -137,7 +139,7 @@ export default class Animations {
       0.5,
       false
     );
-    this.statistics.codingSkills += 1;
+    this.statistics.codingSkills += 2;
     this.statistics.frustration += 1;
     this.enableButtonsAndIdle();
   }
