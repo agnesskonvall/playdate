@@ -73,7 +73,8 @@ export default class Animations {
   Eat() {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'eat', 253, 390, 0.02, 0.5, false);
-    this.statistics.happiness += 2;
+    this.statistics.happiness += 1;
+    this.statistics.tiredness += 1;
     this.enableButtonsAndIdle();
   }
 
@@ -88,12 +89,16 @@ export default class Animations {
   Code() {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'code', 261, 390, 0.02, 0.5, false);
+    this.statistics.codingSkills += 2;
+    this.statistics.tiredness += 1;
+    console.log(this.statistics.tiredness);
     this.enableButtonsAndIdle();
   }
 
   Beer() {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'beer', 253, 390, 0.02, 0.5, false);
+    this.statistics.happiness += 2;
     this.enableButtonsAndIdle();
   }
 
@@ -108,12 +113,15 @@ export default class Animations {
       0.5,
       false
     );
+    this.statistics.tiredness += 2;
     this.enableButtonsAndIdle();
   }
 
   Stack() {
     this.disableButtonsAndIdle();
     this.yrgonaut = new Yrgonaut(this.app, 'stack', 277, 390, 0.02, 0.5, false);
+    this.statistics.frustation += 1;
+    this.statistics.codingSkills += 2;
     this.enableButtonsAndIdle();
   }
 
@@ -128,6 +136,8 @@ export default class Animations {
       0.5,
       false
     );
+    this.statistics.codingSkills += 1;
+    this.statistics.frustation += 1;
     this.enableButtonsAndIdle();
   }
 
