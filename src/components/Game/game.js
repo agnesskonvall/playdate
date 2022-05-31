@@ -112,7 +112,7 @@ function loadingSuccessful() {
   app.stage.addChild(stackOverflowButton);
   stackOverflowButton.on('pointerdown', animations.Stack.bind(animations));
   app.stage.addChild(githubButton);
-  //githubButton.on('pointerdown', animations.Github.bind(animations));
+  githubButton.on('pointerdown', animations.Github.bind(animations));
   app.stage.addChild(statsButton);
   statsButton.on('pointerdown', animations.ShowStats.bind(animations));
 

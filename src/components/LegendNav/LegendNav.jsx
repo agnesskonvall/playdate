@@ -8,6 +8,7 @@ import Computer from '/resources/sprites/computer_white.png';
 import Legstretch from '/resources/sprites/legstretch.png';
 import StackOverflow from '/resources/sprites/stack_overflow.png';
 import Stats from '/resources/sprites/stats.png';
+import Github from '/resources/sprites/github.png';
 
 const EatIcon = styled.img.attrs({
   src: `${ForkAndKnife}`,
@@ -35,6 +36,10 @@ const StackOverflowIcon = styled.img.attrs({
 
 const StatsIcon = styled.img.attrs({
   src: `${Stats}`,
+})``;
+
+const GithubIcon = styled.img.attrs({
+  src: `${Github}`,
 })``;
 
 const LegendContent = styled.div`
@@ -93,7 +98,9 @@ const Legend = () => {
           </Link>
         </li>
         <li>
-          <Link to="/placeholder">Placeholder</Link>
+          <Link to="/placeholder">
+            <GithubIcon />
+          </Link>
         </li>
         <li>
           <Link to="/stats">

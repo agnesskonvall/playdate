@@ -117,6 +117,20 @@ export default class Animations {
     this.enableButtonsAndIdle();
   }
 
+  Github() {
+    this.disableButtonsAndIdle();
+    this.yrgonaut = new Yrgonaut(
+      this.app,
+      'github',
+      255,
+      390,
+      0.02,
+      0.5,
+      false
+    );
+    this.enableButtonsAndIdle();
+  }
+
   ShowStats() {
     this.showingStats = true;
     this.disableButtonsAndIdle();
