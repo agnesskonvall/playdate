@@ -4,7 +4,7 @@ const Afterwork = () => {
   return (
     <>
       <LegendNav />
-      <LegendCard instructions="i am Afterwork" />
+      <LegendCard instructions="Här på Yrgo gillar vi att gå på AW! Drick en alkoholfri öl och sätt slipsen i pannan. Happiness +2" />
     </>
   );
 };

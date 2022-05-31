@@ -65,7 +65,6 @@ const LegendContent = styled.div`
 const Legend = () => {
   return (
     <LegendContent>
-      <p>Instructions</p>
       <ul>
         <li>
           <Link to="/ata">

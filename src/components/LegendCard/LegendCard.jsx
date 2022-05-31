@@ -16,12 +16,18 @@ const LegendContent = styled.div`
     color: orange;
     text-decoration: none;
   }
+  .instructionText {
+    display: flex;
+    text-align: center;
+  }
 `;
 
 const LegendCard = (props) => {
   return (
     <LegendContent>
-      <p>{props.instructions}</p>
+      <div className="instructionText">
+        <p>{props.instructions}</p>
+      </div>
     </LegendContent>
   );
 };
