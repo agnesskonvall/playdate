@@ -1,5 +1,5 @@
 import * as PIXI from 'pixi.js';
-// import './game.js';
+import './game.js';
 
 export default class Yrgonaut extends PIXI.AnimatedSprite {
   constructor(app, animationId, x, y, animationSpeed, anchor, loop) {

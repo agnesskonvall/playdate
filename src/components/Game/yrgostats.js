@@ -1,4 +1,4 @@
-// import './game.js';
+import './game.js';
 
 export default class YrgoStats {
   showingStats;
