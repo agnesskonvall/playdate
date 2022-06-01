@@ -31,9 +31,19 @@ URL to demo: (Yrgotchi)[https://yrgotchi.netlify.app/]
     -   [2 - Imported Pixi.js] (https://github.com/agnesskonvall/playdate/pull/2)
     -   [1 - Initial commit] (https://github.com/agnesskonvall/playdate/pull/1)
 
-# Code Review
+# Code Review by [Theo Sandell](https://github.com/theo0165) & [Patrik Staaf](https://github.com/patrikstaaf)
 
-1. `example.js:10-15` - Remember to think about X and this could be refactored using the amazing Y function.
+1. `App.jsx:20` - No 404 route.
+2. `App.jsx:20` - All Legend components/pages (Eat, Sleep etc) could be refactored to one Legend component that contains LegendNav and LegendCard that takes instructions as prop and send it to LegendCard.
+3. `game.js:61-67` - Error and loading not needed for prod/functions doesn't give information to user.
+4. `game.js:92-115` - Lots of DRY code, could this be refactored as a for loop?
+5. `game.js:121` - gameLoop() is empty.
+6. `animations.js:25-36;68-79` - Same code, refactor to a seperate method.
+7. `animations.js:173-180` - Could use template literals for concatenation.
+8. `menuitem.js:2, yrgonaut.js:2, yrgostats.js:1` - No need to import game.js.
+9. `animations.js:96-167` - This works fine but could it be refactored into a single method?
+10. Praise: Overall, great job! Fun idea, cool animated sprites and good execution.
+
 
 # Testers
 
