@@ -1,9 +1,9 @@
-INSERT MANDATORY GIF
+[https://i.pinimg.com/originals/ec/bc/4e/ecbc4e4b004c14326431df7763044eb8.gif]
 
 # Yrgotchi
 
 A tamagotchi with a "web dev student @ Yrgo" theme. Built using Vite, React and PixiJS.
-URL to demo: (to come)
+URL to demo: (Yrgotchi)[https://yrgotchi.netlify.app/]
 
 # Installation
 
@@ -13,7 +13,23 @@ URL to demo: (to come)
 
 # Changelog
 
-- [#1 - Add a link to each pull request with a descriptive line.](#1)
+    -   [17 - Last bugfix] (https://github.com/agnesskonvall/playdate/pull/18)
+    -   [16 - More bugfixes] (https://github.com/agnesskonvall/playdate/pull/17)
+    -   [15 - Bugfixes] (https://github.com/agnesskonvall/playdate/pull/16)
+    -   [14 - Added sounds] (https://github.com/agnesskonvall/playdate/pull/15)
+    -   [13 - Added navbar with instructions] (https://github.com/agnesskonvall/playdate/pull/14)
+    -   [12 - Even more animations] (https://github.com/agnesskonvall/playdate/pull/13)
+    -   [11 - Update read.me] (https://github.com/agnesskonvall/playdate/pull/12)
+    -   [10 - Split into even more files] (https://github.com/agnesskonvall/playdate/pull/11)
+    -   [9 - Importing fish & bubble] (https://github.com/agnesskonvall/playdate/pull/10)
+    -   [8 - GO Structure.] (https://github.com/agnesskonvall/playdate/pull/8)
+    -   [7 - Added animations to sprite] (https://github.com/agnesskonvall/playdate/pull/7)
+    -   [6 - Added React ] (https://github.com/agnesskonvall/playdate/pull/6)
+    -   [5 - Split into more files for readability] (https://github.com/agnesskonvall/playdate/pull/5) 
+    -   [4 - Added animations boilerplate] (https://github.com/agnesskonvall/playdate/pull/4)
+    -   [3 - React preparations] (https://github.com/agnesskonvall/playdate/pull/3)
+    -   [2 - Imported Pixi.js] (https://github.com/agnesskonvall/playdate/pull/2)
+    -   [1 - Initial commit] (https://github.com/agnesskonvall/playdate/pull/1)
 
 # Code Review
 
@@ -23,14 +39,15 @@ URL to demo: (to come)
 
 Tested by the following people:
 
-1. Jane Doe
-2. John Doe
-3. Jane Doe
-4. John Doe
+1. Alice Nyberg
+2. Amanda Hultén
+3. Sofia Rönnqvist
+4. Oliver Davis
 
 Tested by the following muggles (non-coders):
 
-1. Jane Doe
-2. John Doe
-3. Jane Doe
-4. John Doe
+1. Filippa Kärn
+2. Karin Skönvall Hesslind
+3. Anna Ramstedt
+4. Arlene Stridh
+5. Rohit Narayan
